@@ -349,7 +349,9 @@ impl Catalog {
                 let bundled_entry = bundled.rows().entries.get(&key).cloned();
                 let replaced_by_bundled = bundled_entry.is_some();
                 if let Some(entry) = bundled_entry {
-                    catalog.store.edit(|rows| rows.entries.insert(key.clone(), entry));
+                    catalog
+                        .store
+                        .edit(|rows| rows.entries.insert(key.clone(), entry));
                 }
                 Rejection {
                     key,
